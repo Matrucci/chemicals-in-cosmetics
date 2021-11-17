@@ -1,0 +1,18 @@
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csprojAssemblyReference.cache
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-products.g.cs
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\company-product-page.g.cs
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\MainWindow.g.cs
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\App.g.cs
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics_MarkupCompile.cache
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics_MarkupCompile.lref
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Chemicals and cosmetics.exe.config
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Chemicals and cosmetics.exe
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Chemicals and cosmetics.pdb
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-products.baml
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\company-product-page.baml
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\MainWindow.baml
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.g.resources
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals_and_cosmetics.Properties.Resources.resources
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csproj.GenerateResource.cache
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.exe
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.pdb

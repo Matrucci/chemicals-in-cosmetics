@@ -6,12 +6,22 @@
         xmlns:local="clr-namespace:Chemicals_and_cosmetics"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800">
+    
     <StackPanel>
+    
         <Grid>
+          <!-- <Grid.Background>
+               <ImageBrush Stretch="Fill" ImageSource="C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים" AlignmentY="Top" AlignmentX="Center"/>
+            </Grid.Background> -->
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
-            <Button Margin ="50 225 50 50" Grid.Column="0" Content="Proxy" />
+            <Button Margin ="130,295,166.6,-260.4" Grid.Column="0" Content="company" Grid.ColumnSpan="2" Click="Continue_Company" />
+            <Button Margin ="130,295,166.6,-260.4" Grid.Column="1" Content="client" Height="48" Grid.ColumnSpan="2" Click="Continue_Client" />
+            <Label Content="Chemicals in Cosmetics" HorizontalAlignment="Center" Height="68" Margin="-1,15,-5.4,0" VerticalAlignment="Top" Width="800" FontFamily="Arial Black" FontSize="50" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
         </Grid>
+
     </StackPanel>
 </Window>

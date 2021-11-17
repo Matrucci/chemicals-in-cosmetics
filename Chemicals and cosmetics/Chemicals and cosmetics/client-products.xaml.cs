@@ -16,25 +16,18 @@ using System.Windows.Shapes;
 namespace Chemicals_and_cosmetics
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for client_products.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class client_products : Page
     {
-        public MainWindow()
+        public client_products()
         {
             InitializeComponent();
         }
 
-        private void Continue_Company(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            company_product_page page = new company_product_page();
-            this.Content = page;
-        }
 
-        private void Continue_Client(object sender, RoutedEventArgs e)
-        {
-            client_products page = new client_products();
-            this.Content = page;
         }
     }
 }
