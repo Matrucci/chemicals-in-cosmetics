@@ -25,7 +25,7 @@
             <Grid Grid.Column="0">
                 <Label Content="Product Code" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 60, 0, 0"/>
                 <!--<TextBox x:Name="oldNameTextBox" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Text="Type here ..." Height="25" Margin="15,15,15,15" FontSize="14"/>-->
-                <TextBox x:Name="oldNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" >
+                <TextBox x:Name="oldNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" PreviewTextInput="NumberValidationTextBox">
                     <TextBox.Style>
                         <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
                             <Style.Resources>
@@ -53,7 +53,7 @@
             <Grid Grid.Column="1">
                 <Label Content="New Name" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 60, 0, 0"/>
                 <!--<TextBox x:Name="newNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" Text="Type here ..." FontSize="14"/>-->
-                <TextBox x:Name="newNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" >
+                <TextBox x:Name="newNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14">
                     <TextBox.Style>
                         <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
                             <Style.Resources>
