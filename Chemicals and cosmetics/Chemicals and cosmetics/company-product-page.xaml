@@ -9,16 +9,14 @@
       Title="company_product_page">
 
     <StackPanel>
-
-     <TextBlock Text="What's your name?"/>
-        <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
-          <!--    <Button Content="Hello button" Click="Button_Click"/>-->
-        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,20,0,20"/>
+        <Label Content="Changed the product Name?" HorizontalAlignment="Center" Height="68" VerticalAlignment="Top" Width="800" FontFamily="Arial Black" FontSize="50" HorizontalContentAlignment="Center"/>
         <TextBlock x:Name="greetingOutput"/>
-        <Label Content="Product Code" Margin="192,0,336,0"/>
-        <TextBox Height="23" TextWrapping="Wrap" Text="TextBox" Margin="192,0,336,0"/>
-        <Label Content="New Name" Margin="192,50,336,0"/>
-        <TextBox Height="23" TextWrapping="Wrap" Text="TextBox" Margin="192,0,336,0"/>
+        <Label Content="Product Code" FontFamily="Arial Black" Margin="192,0,336,0" FontSize="18"/>
+        <TextBox Height="22" TextWrapping="Wrap" Text="Type here ..." Margin="192,0,336,0" FontSize="14"/>
+        <Label Content="New Name" FontFamily="Arial Black" Margin="192,50,336,0" FontSize="18"/>
+        <TextBox Height="23" TextWrapping="Wrap" Text="Type here ..." Margin="192,0,336,0" FontSize="14"/>
+        <Button Content="UPDATE" Margin="0,100,50,0" HorizontalAlignment="Right" Height="42" VerticalAlignment="Top" Width="107"/>
 
     </StackPanel>
 </Page>
