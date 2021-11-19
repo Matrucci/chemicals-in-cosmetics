@@ -8,15 +8,81 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="company_product_page">
 
-    <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="0,20,0,20"/>
-        <Label Content="Changed the product Name?" HorizontalAlignment="Center" Height="68" VerticalAlignment="Top" Width="800" FontFamily="Arial Black" FontSize="50" HorizontalContentAlignment="Center"/>
-        <TextBlock x:Name="greetingOutput"/>
-        <Label Content="Product Code" FontFamily="Arial Black" Margin="192,0,336,0" FontSize="18"/>
-        <TextBox Height="22" TextWrapping="Wrap" Text="Type here ..." Margin="192,0,336,0" FontSize="14"/>
-        <Label Content="New Name" FontFamily="Arial Black" Margin="192,50,336,0" FontSize="18"/>
-        <TextBox Height="23" TextWrapping="Wrap" Text="Type here ..." Margin="192,0,336,0" FontSize="14"/>
-        <Button Content="UPDATE" Margin="0,100,50,0" HorizontalAlignment="Right" Height="42" VerticalAlignment="Top" Width="107"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
 
-    </StackPanel>
+        <Label Content="Changed the product Name?" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontFamily="Arial Black" FontSize="45" HorizontalContentAlignment="Center" Margin="10, 0, 10, 0"/>
+        <!--<TextBlock x:Name="greetingOutput"/>-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Label Content="Product Code" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 60, 0, 0"/>
+                <!--<TextBox x:Name="oldNameTextBox" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Text="Type here ..." Height="25" Margin="15,15,15,15" FontSize="14"/>-->
+                <TextBox x:Name="oldNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" >
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Center" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Type here..." Foreground="LightGray" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Label Content="New Name" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 60, 0, 0"/>
+                <!--<TextBox x:Name="newNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" Text="Type here ..." FontSize="14"/>-->
+                <TextBox x:Name="newNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" >
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Center" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Type here..." Foreground="LightGray" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </Grid>
+        </Grid>
+
+
+        <Button x:Name="updateProductName" Content="Update" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50"/>
+        <Button x:Name="backToMenu" Content="Back" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click"/>
+
+    </Grid>
 </Page>

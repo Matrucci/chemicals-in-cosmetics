@@ -16,3 +16,21 @@ C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csproj.GenerateResource.cache
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.exe
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.pdb
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Chemicals and cosmetics.exe.config
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Chemicals and cosmetics.exe
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Chemicals and cosmetics.pdb
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csprojAssemblyReference.cache
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-products.g.cs
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\company-product-page.g.cs
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\MainWindow.g.cs
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\App.g.cs
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics_MarkupCompile.cache
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics_MarkupCompile.lref
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-products.baml
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\company-product-page.baml
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\MainWindow.baml
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.g.resources
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals_and_cosmetics.Properties.Resources.resources
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csproj.GenerateResource.cache
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.exe
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.pdb

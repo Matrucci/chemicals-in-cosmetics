@@ -9,18 +9,30 @@
       Title="client_products">
 
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="66,164,0,0" VerticalAlignment="Top" Width="172"/>
-        <ComboBox HorizontalAlignment="Left" Margin="66,260,0,0" VerticalAlignment="Top" Width="172"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="494,164,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="494,200,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="494,240,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="CheckBox" FontFamily="Arial Black" HorizontalAlignment="Left" Margin="494,282,0,0" VerticalAlignment="Top"/>
-        <Label Content="Select the category" FontFamily="Arial Black" HorizontalAlignment="Left" Margin="66,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.51,-0.257" Width="172"/>
-        <Label Content="Select the subcategory" FontFamily="Arial Black" HorizontalAlignment="Left" Margin="66,222,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.51,-0.257" Width="172"/>
-        <Label Content="Please mark chemicals you are allergic to" FontFamily="Arial Black" HorizontalAlignment="Left" Margin="491,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.51,-0.257" Width="259"/>
-        <Label Content="Find the Products" HorizontalAlignment="Center" Height="68" Margin="-1,15,1,0" VerticalAlignment="Top" Width="800" FontFamily="Arial Black" FontSize="50" HorizontalContentAlignment="Center"/>
-        <Button Content="FIND" HorizontalAlignment="Left" Height="42" Margin="650,379,0,0" VerticalAlignment="Top" Width="107"/>
-        <ComboBox HorizontalAlignment="Left" Height="100" Margin="619,164,0,0" VerticalAlignment="Top" Width="110"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Label Content="Find Products" Grid.Row="0" HorizontalAlignment="Center" Height="70" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="50"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                <Label Content="Select the category" FontFamily="Arial Black" HorizontalAlignment="Center" Margin="0, 55, 0, 0"/>
+                <ComboBox HorizontalAlignment="Center" Width="170" Margin="0, 10, 0, 0"/>
+
+                <Label Content="Select the subcategory" FontFamily="Arial Black" HorizontalAlignment="Center" Margin="0, 50, 0, 0"/>
+                <ComboBox HorizontalAlignment="Center" Width="170" Margin="0, 10, 0, 0"/>
+            </StackPanel>
+            
+            <Label Content="Please mark chemicals you are allergic to" Grid.Row="1" Grid.Column="1" FontFamily="Arial Black" Margin="0,30,0,0" VerticalAlignment="Top" Width="288"/>
+
+        </Grid>
+        <Button x:Name="findProductsBtn" Content="Find" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" VerticalAlignment="Bottom" Height="50" Width="100"/>
+        <Button x:Name="backToMenu" Content="Back" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click"/>
 
     </Grid>
 </Page>

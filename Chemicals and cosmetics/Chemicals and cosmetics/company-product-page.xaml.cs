@@ -24,5 +24,13 @@ namespace Chemicals_and_cosmetics
         {
             InitializeComponent();
         }
+
+        private void backToMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Visibility = Visibility.Visible;
+            Window win = (Window)this.Parent;
+            win.Close();
+        }
     }
 }
