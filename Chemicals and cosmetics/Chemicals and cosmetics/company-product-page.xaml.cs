@@ -40,6 +40,14 @@ namespace Chemicals_and_cosmetics
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-        
+
+        private void updateProductName_Click(object sender, RoutedEventArgs e)
+        {
+            String productCode = this.productCodeTextBox.Text;
+            String newProductName = this.newNameTextBox.Text;
+
+            //TODO update query
+            
+        }
     }
 }

@@ -25,7 +25,7 @@
             <Grid Grid.Column="0">
                 <Label Content="Product Code" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 60, 0, 0"/>
                 <!--<TextBox x:Name="oldNameTextBox" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Text="Type here ..." Height="25" Margin="15,15,15,15" FontSize="14"/>-->
-                <TextBox x:Name="oldNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" PreviewTextInput="NumberValidationTextBox">
+                <TextBox x:Name="productCodeTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" PreviewTextInput="NumberValidationTextBox">
                     <TextBox.Style>
                         <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
                             <Style.Resources>
@@ -81,7 +81,7 @@
         </Grid>
 
 
-        <Button x:Name="updateProductName" Content="Update" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50"/>
+        <Button x:Name="updateProductName" Content="Update" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="updateProductName_Click"/>
         <Button x:Name="backToMenu" Content="Back" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click"/>
 
     </Grid>

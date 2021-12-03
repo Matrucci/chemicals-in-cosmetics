@@ -37,5 +37,30 @@ namespace Chemicals_and_cosmetics
             Window win = (Window)this.Parent;
             win.Close();
         }
+
+        private void findProductsBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            ComboBox primary = this.primary_categoty_cb;
+            ComboBox sub = this.sub_category_cb;
+            ListBox chemicals = this.chemical_lb;
+
+            //Initializing variables
+            String primaryCategory, subCategory;
+            List<String> chemicalList = new List<String>();
+
+            //Get selected itmes
+            foreach (ListBoxItem item in chemicals.Items)
+            {
+                if (item.IsSelected)
+                {
+                    chemicalList.Add(item.Content.ToString());
+                }
+            }
+            primaryCategory = primary.Text;
+            subCategory = sub.Text;
+
+
+        }
     }
 }
