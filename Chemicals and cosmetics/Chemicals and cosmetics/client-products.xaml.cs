@@ -107,7 +107,7 @@ namespace Chemicals_and_cosmetics
             foreach (string item in this.chemical_lb.SelectedItems)
             {
                 chemicalList.Add(item);
-                str.Append(item);
+                str.Append("'" + item + "'");
                 str.Append(",");
             }
             if (str.Length > 0)
@@ -157,7 +157,7 @@ namespace Chemicals_and_cosmetics
             Console.WriteLine("INCLUDE: " + include);
 
 
-            //Get chemical id
+            //Get chemical id 
             commandString = "SELECT chemical_id FROM chemical WHERE chemical_name IN (@chemicals)";
             cmd = new MySqlCommand(commandString, this.connection);
             cmd.Parameters.AddWithValue("@chemicals", selectedChemicals);
@@ -168,7 +168,7 @@ namespace Chemicals_and_cosmetics
             {
                 excludeBuilder.Append(rdr[0].ToString());
                 excludeBuilder.Append(",");
-            }
+            } 
             if (excludeBuilder.Length > 0)
                 excludeBuilder.Remove(excludeBuilder.Length - 1, 1);
             string exclude = excludeBuilder.ToString();

@@ -47,7 +47,6 @@ namespace Chemicals_and_cosmetics
         {
             int productCode = int.Parse(this.productCodeTextBox.Text);
             string newProductName = this.newNameTextBox.Text;
-            //string commandString = "UPDATE product SET product_name = " + newProductName + "WHERE cdph_id = " + productCode;
             string commandString = "UPDATE product SET product_name = @new_name WHERE cdph_id = @code";
             MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
             cmd.Parameters.AddWithValue("@new_name", newProductName);
