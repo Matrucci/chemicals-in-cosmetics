@@ -45,10 +45,15 @@ namespace Chemicals_and_cosmetics
 
         private void updateProductName_Click(object sender, RoutedEventArgs e)
         {
-            String productCode = this.productCodeTextBox.Text;
-            String newProductName = this.newNameTextBox.Text;
-
-            //TODO update query
+            int productCode = int.Parse(this.productCodeTextBox.Text);
+            string newProductName = this.newNameTextBox.Text;
+            //string commandString = "UPDATE product SET product_name = " + newProductName + "WHERE cdph_id = " + productCode;
+            string commandString = "UPDATE product SET product_name = @new_name WHERE cdph_id = @code";
+            MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
+            cmd.Parameters.AddWithValue("@new_name", newProductName);
+            cmd.Parameters.AddWithValue("@code", productCode);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Close();
             
         }
     }

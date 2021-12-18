@@ -34,3 +34,17 @@ H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\ob
 H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csproj.GenerateResource.cache
 H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.exe
 H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.pdb
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MySql.Data.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Google.Protobuf.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\ZstdNet.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\K4os.Compression.LZ4.Streams.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\BouncyCastle.Crypto.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Ubiety.Dns.Core.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\System.Memory.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\System.Buffers.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\K4os.Compression.LZ4.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\K4os.Hash.xxHash.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\System.Numerics.Vectors.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MySql.Data.xml
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.exe.config
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csproj.CopyComplete
