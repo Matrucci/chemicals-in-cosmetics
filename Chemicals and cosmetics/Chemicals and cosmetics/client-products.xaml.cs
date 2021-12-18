@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace Chemicals_and_cosmetics
     /// </summary>
     public partial class client_products : Page
     {
-        public client_products()
+        private MySqlConnection connection;
+        public client_products(MySqlConnection connection)
         {
             InitializeComponent();
+            this.connection = connection;
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
-
+using MySql.Data.MySqlClient;
 
 namespace Chemicals_and_cosmetics
 {
@@ -22,9 +22,11 @@ namespace Chemicals_and_cosmetics
     /// </summary>
     public partial class company_product_page : Page
     {
-        public company_product_page()
+        private MySqlConnection connection;
+        public company_product_page(MySqlConnection connection)
         {
             InitializeComponent();
+            this.connection = connection;
         }
 
         private void backToMenu_Click(object sender, RoutedEventArgs e)

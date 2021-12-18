@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace Chemicals_and_cosmetics
 {
@@ -20,20 +21,23 @@ namespace Chemicals_and_cosmetics
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MySqlConnection connection;
         public MainWindow()
         {
             InitializeComponent();
+            string connectionString = "SERVER=localhost;DATABASE=cosmetics;UID=root;PASSWORD=;";
+            this.connection = new MySqlConnection(connectionString);
         }
 
         private void Continue_Company(object sender, RoutedEventArgs e)
         {
-            company_product_page page = new company_product_page();
+            company_product_page page = new company_product_page(connection);
             this.Content = page;
         }
 
         private void Continue_Client(object sender, RoutedEventArgs e)
         {
-            client_products page = new client_products();
+            client_products page = new client_products(connection);
             this.Content = page;
         }
     }
