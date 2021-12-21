@@ -44,10 +44,10 @@ namespace Chemicals_and_cosmetics
             {
                 this.primary_categoty_cb.Items.Add(pc);
             }
-            foreach (string sc in this.sub)
-            {
-                this.sub_category_cb.Items.Add(sc);
-            }
+           // foreach (string sc in this.sub)
+           // {
+           //     this.sub_category_cb.Items.Add(sc);
+           // }
         }
 
         private void DownloadData()
@@ -61,14 +61,6 @@ namespace Chemicals_and_cosmetics
             }
             rdr.Close();
 
-            commandString = "SELECT sub_category FROM sub_category";
-            cmd = new MySqlCommand(commandString, this.connection);
-            rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-                this.sub.Add(rdr[0].ToString());
-            }
-            rdr.Close();
 
             commandString = "SELECT DISTINCT chemical_name FROM chemical";
             cmd = new MySqlCommand(commandString, this.connection);
@@ -110,11 +102,15 @@ namespace Chemicals_and_cosmetics
                 str.Append("'" + item + "'");
                 str.Append(",");
             }
+            if (chemicalList.Count() == 0)
+            {
+                chemicalList.Add("");
+            }
             if (str.Length > 0)
                 str.Remove(str.Length - 1, 1);
             //str.Append(")");
             string selectedChemicals = str.ToString();
-            Console.WriteLine(selectedChemicals);
+            Console.WriteLine(this.chemical_lb.SelectedItems.ToString());
             
             primaryCategory = this.primary_categoty_cb.Text;
             subCategory = this.sub_category_cb.Text;
@@ -128,6 +124,7 @@ namespace Chemicals_and_cosmetics
             int primaryId = int.Parse(rdr[0].ToString());
             rdr.Close();
 
+
             //Getting sub id
             commandString = "SELECT sub_category_id FROM sub_category WHERE sub_category = @sub";
             cmd = new MySqlCommand(commandString, this.connection);
@@ -138,7 +135,7 @@ namespace Chemicals_and_cosmetics
             rdr.Close();
 
             //Getting product codes
-            commandString = "SELECT cdph_id FROM product_categories WHERE primary_category_id = @primary AND sub_category_id = @sub";
+            commandString = "SELECT DISTINCT cdph_id FROM product_categories WHERE primary_category_id = @primary AND sub_category_id = @sub";
             cmd = new MySqlCommand(commandString, this.connection);
             cmd.Parameters.AddWithValue("@primary", primaryId);
             cmd.Parameters.AddWithValue("@sub", subId);
@@ -154,41 +151,99 @@ namespace Chemicals_and_cosmetics
                 includeBuilder.Remove(includeBuilder.Length - 1, 1);
             string include = includeBuilder.ToString();
             rdr.Close();
-            Console.WriteLine("INCLUDE: " + include);
+            //Console.WriteLine("INCLUDE: " + include);
 
 
             //Get chemical id 
-            commandString = "SELECT chemical_id FROM chemical WHERE chemical_name IN (@chemicals)";
-            cmd = new MySqlCommand(commandString, this.connection);
-            cmd.Parameters.AddWithValue("@chemicals", selectedChemicals);
-            rdr = cmd.ExecuteReader();
-            StringBuilder excludeBuilder = new StringBuilder();
 
-            while (rdr.Read())
-            {
-                excludeBuilder.Append(rdr[0].ToString());
-                excludeBuilder.Append(",");
-            } 
-            if (excludeBuilder.Length > 0)
-                excludeBuilder.Remove(excludeBuilder.Length - 1, 1);
-            string exclude = excludeBuilder.ToString();
-            rdr.Close();
-            Console.WriteLine("EXCLUDE: " + exclude);
 
             //Get products excluding chemicals
-            commandString = "SELECT cdph_id FROM product_chemicals WHERE cdph_id IN (@products) AND chemical_id NOT IN (@chemicals)";
-            cmd = new MySqlCommand(commandString, this.connection);
-            cmd.Parameters.AddWithValue("@products", include);
-            cmd.Parameters.AddWithValue("@chemicals", exclude);
+            if (include.Length == 0)
+            {
+                include = "";
+            }
+            List<string> includedProducts = include.Split(',').ToList<string>();
+
+            var parameters = new string[chemicalList.Count()];
+            var prod = new string[includedProducts.Count()];
+            cmd = new MySqlCommand();
+
+
+            for (int i = 0; i < chemicalList.Count(); i++)
+            {
+                parameters[i] = string.Format("@Chemical{0}", i);
+                cmd.Parameters.AddWithValue(parameters[i], chemicalList[i]);
+            }
+
+            for (int i = 0; i < prod.Length; i++)
+            {
+                prod[i] = string.Format("@Product{0}", i);
+                cmd.Parameters.AddWithValue(prod[i], includedProducts[i]);
+            }
+
+            string chemicalString = string.Format("SELECT chemical_id FROM chemical WHERE chemical_name IN ({0})", string.Join(", ", parameters));
+
+            commandString = string.Format("SELECT DISTINCT cdph_id FROM product_chemicals WHERE cdph_id IN ({0}) AND chemical_id NOT IN (" + chemicalString + ")", string.Join(", ", prod));
+            cmd.CommandText = commandString;
+            cmd.Connection = this.connection;
             rdr = cmd.ExecuteReader();
 
+            List<string> result = new List<string>();
             while (rdr.Read())
             {
-                Console.WriteLine(rdr[0]);
+                result.Add(rdr[0].ToString());
             }
             rdr.Close();
 
+            var codes = new string[result.Count()];
+            cmd = new MySqlCommand();
+            for (int i = 0; i < result.Count(); i++)
+            {
+                codes[i] = string.Format("@ProductCode{0}", i);
+                cmd.Parameters.AddWithValue(codes[i], result[i]);
+            }
+            cmd.Connection = this.connection;
+            string resultCommand = string.Format("SELECT product_name, company_name " +
+                "FROM product_companies " +
+                "JOIN product " +
+                "ON product.cdph_id=product_companies.cdph_id " +
+                "JOIN company " +
+                "ON company.company_id=product_companies.company_id " +
+                "WHERE product.cdph_id IN ({0})", string.Join(", ", codes));
+            cmd.CommandText = resultCommand;
+
+            foreach (string cell in result)
+            {
+                Console.WriteLine(cell);
+            }
+            rdr = cmd.ExecuteReader();
+
+            Results resultWindow = new Results(rdr);
+            resultWindow.Show();
 
         }
+
+        private void primary_categoty_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            sub_category_cb.IsEnabled = true;
+
+            String commandString = "SELECT sub_category FROM sub_category WHERE sub_category_id IN " +
+                "(SELECT sub_category_id FROM product_categories WHERE primary_category_id = " +
+                "(SELECT primary_category_id From primary_category Where primary_category = @primary))";
+            MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
+            cmd.Parameters.AddWithValue("@primary", this.primary_categoty_cb.SelectedItem.ToString());
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                this.sub.Add(rdr[0].ToString());
+            }
+            rdr.Close();
+
+            foreach (string sc in this.sub)
+            {
+                this.sub_category_cb.Items.Add(sc);
+            }
+        }
+
     }
 }
