@@ -106,7 +106,7 @@ namespace Chemicals_and_cosmetics
                 str.Remove(str.Length - 1, 1);
             //str.Append(")");
             string selectedChemicals = str.ToString();
-            Console.WriteLine(selectedChemicals);
+            Console.WriteLine(this.chemical_lb.SelectedItems.ToString());
             
             primaryCategory = this.primary_categoty_cb.Text;
             subCategory = this.sub_category_cb.Text;
@@ -151,9 +151,17 @@ namespace Chemicals_and_cosmetics
 
 
             //Get chemical id 
-            commandString = "SELECT chemical_id FROM chemical WHERE chemical_name IN (@chemicals)";
-            cmd = new MySqlCommand(commandString, this.connection);
-            cmd.Parameters.AddWithValue("@chemicals", selectedChemicals);
+
+            var parameters = new string[chemicalList.Count()];
+            cmd = new MySqlCommand();
+            for (int i = 0; i < chemicalList.Count(); i++)
+            {
+                parameters[i] = string.Format("@Chemical{0}", i);
+                cmd.Parameters.AddWithValue(parameters[i], chemicalList[i]);
+            }
+            commandString = string.Format("SELECT chemical_id FROM chemical WHERE chemical_name IN ({0})", string.Join(", ", parameters));
+            cmd.CommandText = commandString;
+            cmd.Connection = this.connection;
             rdr = cmd.ExecuteReader();
             StringBuilder excludeBuilder = new StringBuilder();
 
