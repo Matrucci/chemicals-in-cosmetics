@@ -44,10 +44,10 @@ namespace Chemicals_and_cosmetics
             {
                 this.primary_categoty_cb.Items.Add(pc);
             }
-            foreach (string sc in this.sub)
-            {
-                this.sub_category_cb.Items.Add(sc);
-            }
+           // foreach (string sc in this.sub)
+           // {
+           //     this.sub_category_cb.Items.Add(sc);
+           // }
         }
 
         private void DownloadData()
@@ -61,14 +61,6 @@ namespace Chemicals_and_cosmetics
             }
             rdr.Close();
 
-            commandString = "SELECT sub_category FROM sub_category";
-            cmd = new MySqlCommand(commandString, this.connection);
-            rdr = cmd.ExecuteReader();
-            while (rdr.Read())
-            {
-                this.sub.Add(rdr[0].ToString());
-            }
-            rdr.Close();
 
             commandString = "SELECT DISTINCT chemical_name FROM chemical";
             cmd = new MySqlCommand(commandString, this.connection);
@@ -127,6 +119,7 @@ namespace Chemicals_and_cosmetics
             rdr.Read();
             int primaryId = int.Parse(rdr[0].ToString());
             rdr.Close();
+
 
             //Getting sub id
             commandString = "SELECT sub_category_id FROM sub_category WHERE sub_category = @sub";
@@ -190,5 +183,28 @@ namespace Chemicals_and_cosmetics
 
 
         }
+
+        private void primary_categoty_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            sub_category_cb.IsEnabled = true;
+
+            String commandString = "SELECT sub_category FROM sub_category WHERE sub_category_id IN " +
+                "(SELECT sub_category_id FROM product_categories WHERE primary_category_id = " +
+                "(SELECT primary_category_id From primary_category Where primary_category = @primary))";
+            MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
+            cmd.Parameters.AddWithValue("@primary", this.primary_categoty_cb.SelectedItem.ToString());
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                this.sub.Add(rdr[0].ToString());
+            }
+            rdr.Close();
+
+            foreach (string sc in this.sub)
+            {
+                this.sub_category_cb.Items.Add(sc);
+            }
+        }
+
     }
 }

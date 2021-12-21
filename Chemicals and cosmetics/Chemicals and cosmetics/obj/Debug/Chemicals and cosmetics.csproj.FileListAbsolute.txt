@@ -48,3 +48,17 @@ H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bi
 H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MySql.Data.xml
 H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.exe.config
 H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csproj.CopyComplete
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MySql.Data.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Google.Protobuf.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\ZstdNet.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\System.Memory.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\System.Buffers.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MySql.Data.xml
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.exe.config
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csproj.CopyComplete

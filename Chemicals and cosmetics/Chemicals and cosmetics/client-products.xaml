@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
                 <Label Content="Select the category" FontFamily="Arial Black" HorizontalAlignment="Center" Margin="0, 55, 0, 0"/>
-                <ComboBox Name="primary_categoty_cb" HorizontalAlignment="Center" Width="170" Margin="0, 10, 0, 0">
+                <ComboBox Name="primary_categoty_cb" HorizontalAlignment="Center" Width="170" Margin="0, 10, 0, 0" SelectionChanged="primary_categoty_cb_SelectionChanged">
                     <!--
                     <ListBoxItem Content="x"/>
                     <ListBoxItem Content="y"/>
@@ -31,7 +31,7 @@
                 </ComboBox>
 
                 <Label Content="Select the subcategory" FontFamily="Arial Black" HorizontalAlignment="Center" Margin="0, 50, 0, 0"/>
-                <ComboBox Name="sub_category_cb" HorizontalAlignment="Center" Width="170" Margin="0, 10, 0, 0">
+                <ComboBox Name="sub_category_cb" HorizontalAlignment="Center" Width="170" Margin="0, 10, 0, 0" IsEnabled="False" >
                     <!--
                     <ListBoxItem Content="a"/>
                     <ListBoxItem Content="b"/>
