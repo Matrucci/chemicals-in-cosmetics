@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
+using System.Data;
 
 namespace Chemicals_and_cosmetics
 {
@@ -44,10 +45,6 @@ namespace Chemicals_and_cosmetics
             {
                 this.primary_categoty_cb.Items.Add(pc);
             }
-           // foreach (string sc in this.sub)
-           // {
-           //     this.sub_category_cb.Items.Add(sc);
-           // }
         }
 
         private void DownloadData()
@@ -183,7 +180,7 @@ namespace Chemicals_and_cosmetics
 
             string chemicalString = string.Format("SELECT chemical_id FROM chemical WHERE chemical_name IN ({0})", string.Join(", ", parameters));
 
-            commandString = string.Format("SELECT DISTINCT cdph_id FROM product_chemicals WHERE cdph_id IN ({0}) AND chemical_id NOT IN (" + chemicalString + ")", string.Join(", ", prod));
+            commandString = string.Format("SELECT DISTINCT cdph_id FROM product_chemicals WHERE cdph_id IN ({0}) AND chemical_id IN (" + chemicalString + ")", string.Join(", ", prod));
             cmd.CommandText = commandString;
             cmd.Connection = this.connection;
             rdr = cmd.ExecuteReader();
@@ -202,8 +199,9 @@ namespace Chemicals_and_cosmetics
                 codes[i] = string.Format("@ProductCode{0}", i);
                 cmd.Parameters.AddWithValue(codes[i], result[i]);
             }
+
             cmd.Connection = this.connection;
-            string resultCommand = string.Format("SELECT product_name, company_name " +
+            string resultCommand = string.Format("SELECT COUNT(product_name) " +
                 "FROM product_companies " +
                 "JOIN product " +
                 "ON product.cdph_id=product_companies.cdph_id " +
@@ -211,21 +209,43 @@ namespace Chemicals_and_cosmetics
                 "ON company.company_id=product_companies.company_id " +
                 "WHERE product.cdph_id IN ({0})", string.Join(", ", codes));
             cmd.CommandText = resultCommand;
-
-            foreach (string cell in result)
-            {
-                Console.WriteLine(cell);
-            }
             rdr = cmd.ExecuteReader();
 
-            Results resultWindow = new Results(rdr);
-            resultWindow.Show();
+            rdr.Read();
+            int count = int.Parse(rdr[0].ToString());
+            string[,] copyRdr = new string[count, 2];
+            rdr.Close();
 
+            cmd.Connection = this.connection;
+            resultCommand = string.Format("SELECT product_name, company_name " +
+                "FROM product_companies " +
+                "JOIN product " +
+                "ON product.cdph_id=product_companies.cdph_id " +
+                "JOIN company " +
+                "ON company.company_id=product_companies.company_id " +
+                "WHERE product.cdph_id IN ({0})", string.Join(", ", codes));
+            cmd.CommandText = resultCommand;
+            rdr = cmd.ExecuteReader();
+
+
+            int row = 0;
+
+            while (rdr.Read())
+            {
+                copyRdr[row, 0] = rdr[0].ToString();
+                copyRdr[row, 1] = rdr[1].ToString();
+                row++;
+
+            }
+            rdr.Close();
+
+            client_result resultWindow = new client_result(copyRdr, count, connection);
+            resultWindow.Show();
         }
 
         private void primary_categoty_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            sub_category_cb.IsEnabled = true;
+            this.sub_category_cb.IsEnabled = true;
 
             String commandString = "SELECT sub_category FROM sub_category WHERE sub_category_id IN " +
                 "(SELECT sub_category_id FROM product_categories WHERE primary_category_id = " +
@@ -245,5 +265,9 @@ namespace Chemicals_and_cosmetics
             }
         }
 
+        private void sub_category_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.findProductsBtn.IsEnabled = true;
+        }
     }
 }

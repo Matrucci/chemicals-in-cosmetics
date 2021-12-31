@@ -31,7 +31,7 @@
                 </ComboBox>
 
                 <Label Content="Select the subcategory" FontFamily="Arial Black" HorizontalAlignment="Center" Margin="0, 50, 0, 0"/>
-                <ComboBox Name="sub_category_cb" HorizontalAlignment="Center" Width="170" Margin="0, 10, 0, 0" IsEnabled="False" >
+                <ComboBox Name="sub_category_cb" HorizontalAlignment="Center" Width="170" Margin="0, 10, 0, 0" IsEnabled="False" SelectionChanged="sub_category_cb_SelectionChanged" >
                     <!--
                     <ListBoxItem Content="a"/>
                     <ListBoxItem Content="b"/>
@@ -74,7 +74,7 @@
             </StackPanel>
 
         </Grid>
-        <Button x:Name="findProductsBtn" Content="Find" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" VerticalAlignment="Bottom" Height="50" Width="100" Click="findProductsBtn_Click"/>
+        <Button x:Name="findProductsBtn" Content="Find" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" VerticalAlignment="Bottom" Height="50" Width="100" Click="findProductsBtn_Click" IsEnabled="False"/>
         <Button x:Name="backToMenu" Content="Back" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click"/>
 
     </Grid>
