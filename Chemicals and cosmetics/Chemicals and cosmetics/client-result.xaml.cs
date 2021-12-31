@@ -58,16 +58,7 @@ namespace Chemicals_and_cosmetics
 
         private void doneBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Visibility = Visibility.Visible;
-            Window win = (Window)this.Parent;
-            win.Close();
-        }
-
-        private void backBtn_Click(object sender, RoutedEventArgs e)
-        {
-            client_products page = new client_products(connection);
-            this.Content = page;
+            this.Close();
         }
     }
 }
