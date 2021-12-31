@@ -19,10 +19,11 @@
         <!--<TextBlock x:Name="greetingOutput"/>-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,-0.4">
                 <Label Content="Product Code" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 60, 0, 0"/>
                 <!--<TextBox x:Name="oldNameTextBox" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Text="Type here ..." Height="25" Margin="15,15,15,15" FontSize="14"/>-->
                 <TextBox x:Name="productCodeTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" PreviewTextInput="NumberValidationTextBox">
@@ -50,7 +51,7 @@
                     </TextBox.Style>
                 </TextBox>
             </Grid>
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="2" Margin="0,0,0,-0.4">
                 <Label Content="New Name" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 60, 0, 0"/>
                 <!--<TextBox x:Name="newNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" Text="Type here ..." FontSize="14"/>-->
                 <TextBox x:Name="newNameTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14">
@@ -81,7 +82,7 @@
         </Grid>
 
 
-        <Button x:Name="updateProductName" Content="Update" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="updateProductName_Click"/>
+        <Button x:Name="updateProductName" Content="Update" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="updateProductName_Click" />
         <Button x:Name="backToMenu" Content="Back" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click"/>
 
     </Grid>
