@@ -29,6 +29,9 @@ namespace Chemicals_and_cosmetics
             this.connection = connection;
         }
 
+        /**********************************
+         * Going back to the main screen.
+         *********************************/
         private void backToMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -37,14 +40,21 @@ namespace Chemicals_and_cosmetics
             win.Close();
         }
 
+        /*************************
+         * Only allowing numbers.
+         *************************/
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        /************************************************
+         * Updating the name of the product (rebranding).
+         ************************************************/
         private void updateProductName_Click(object sender, RoutedEventArgs e)
         {
+            //Only allowing updates if both fields are filled.
             if (this.productCodeTextBox.Text != "" && this.newNameTextBox.Text != "")
             {
                 int productCode = int.Parse(this.productCodeTextBox.Text);
