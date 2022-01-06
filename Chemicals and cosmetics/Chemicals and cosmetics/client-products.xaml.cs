@@ -133,11 +133,6 @@ namespace Chemicals_and_cosmetics
                     includeBuilder.Remove(includeBuilder.Length - 1, 1);
                 string include = includeBuilder.ToString();
                 rdr.Close();
-                //Console.WriteLine("INCLUDE: " + include);
-
-
-                //Get chemical id 
-
 
                 //Get products excluding chemicals
                 if (include.Length == 0)

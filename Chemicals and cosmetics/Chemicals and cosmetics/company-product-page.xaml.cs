@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
+using System.Collections;
 
 namespace Chemicals_and_cosmetics
 {
@@ -23,6 +24,12 @@ namespace Chemicals_and_cosmetics
     public partial class company_product_page : Page
     {
         private MySqlConnection connection;
+        private List<int> productCode = new List<int>();
+        //private ArrayList productCode = new ArrayList();
+        bool isvalidCode = false;
+        bool isTypeProdCode = false;
+        bool isTypeNewName = false;
+
         public company_product_page(MySqlConnection connection)
         {
             InitializeComponent();
@@ -57,6 +64,49 @@ namespace Chemicals_and_cosmetics
                 rdr.Close();
             }
             
+        }
+
+        private void companyCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(this.companyCodeTextBox.Text != "") {
+                int companyCode = int.Parse(this.companyCodeTextBox.Text);
+                string commandString = "SELECT cdph_id FROM product_companies WHERE company_id = @company_code";
+                MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
+                cmd.Parameters.AddWithValue("@company_code", companyCode);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    this.productCode.Add(int.Parse(rdr[0].ToString()));
+                }
+                rdr.Close();s
+            }
+        }
+
+        private void productCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            foreach (int code in this.productCode)
+            {
+                if (code == int.Parse(this.productCodeTextBox.Text))
+                {
+                    isvalidCode = true;
+                }
+            }
+            if (!isvalidCode)
+            {
+                this.error.Visibility = Visibility;
+            }
+            else
+            {
+                if (this.isTypeNewName)
+                    updateProductName.IsEnabled = true;
+            }
+        }
+
+        private void newNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.isTypeNewName = true;
+            if (isvalidCode && this.isTypeNewName)
+                updateProductName.IsEnabled = true;
         }
     }
 }
