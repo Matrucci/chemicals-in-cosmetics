@@ -68,7 +68,7 @@ namespace Chemicals_and_cosmetics
 
         private void companyCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(this.companyCodeTextBox.Text != "") {
+            if (this.companyCodeTextBox.Text != "") {
                 int companyCode = int.Parse(this.companyCodeTextBox.Text);
                 string commandString = "SELECT cdph_id FROM product_companies WHERE company_id = @company_code";
                 MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
@@ -78,27 +78,52 @@ namespace Chemicals_and_cosmetics
                 {
                     this.productCode.Add(int.Parse(rdr[0].ToString()));
                 }
-                rdr.Close();s
+                rdr.Close();
+            }
+
+            if (this.companyCodeTextBox.Text != "" && productCodeTextBox.Text != "")
+            {
+                foreach (int code in this.productCode)
+                {
+                    if (code == int.Parse(this.productCodeTextBox.Text))
+                    {
+                        isvalidCode = true;
+                    }
+                }
+                if (!isvalidCode)
+                {
+                    this.error.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    this.error.Visibility = Visibility.Hidden;
+                    if (this.isTypeNewName)
+                        updateProductName.IsEnabled = true;
+                }
             }
         }
 
         private void productCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foreach (int code in this.productCode)
+            if (productCodeTextBox.Text != "")
             {
-                if (code == int.Parse(this.productCodeTextBox.Text))
+                foreach (int code in this.productCode)
                 {
-                    isvalidCode = true;
+                    if (code == int.Parse(this.productCodeTextBox.Text))
+                    {
+                        isvalidCode = true;
+                    }
                 }
-            }
-            if (!isvalidCode)
-            {
-                this.error.Visibility = Visibility;
-            }
-            else
-            {
-                if (this.isTypeNewName)
-                    updateProductName.IsEnabled = true;
+                if (!isvalidCode)
+                {
+                    this.error.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    this.error.Visibility = Visibility.Hidden;
+                    if (this.isTypeNewName)
+                        updateProductName.IsEnabled = true;
+                }
             }
         }
 
