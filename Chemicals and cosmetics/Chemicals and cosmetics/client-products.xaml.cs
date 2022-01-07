@@ -35,9 +35,6 @@ namespace Chemicals_and_cosmetics
             InitializeContent();
         }
 
-        /**************************************************************
-         * Populating the fields with the data downloaded from the DB.
-         **************************************************************/
         private void InitializeContent()
         {
             foreach (string chem in this.chemicals)
@@ -50,12 +47,8 @@ namespace Chemicals_and_cosmetics
             }
         }
 
-        /*************************************
-         * Downloading the data from the DB.
-         *************************************/
         private void DownloadData()
         {
-            //Getting the primary categories.
             string commandString = "SELECT primary_category FROM primary_category";
             MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
             MySqlDataReader rdr = cmd.ExecuteReader();
@@ -65,7 +58,7 @@ namespace Chemicals_and_cosmetics
             }
             rdr.Close();
 
-            //Getting the secondary categories.
+
             commandString = "SELECT DISTINCT chemical_name FROM chemical";
             cmd = new MySqlCommand(commandString, this.connection);
             rdr = cmd.ExecuteReader();
@@ -81,9 +74,6 @@ namespace Chemicals_and_cosmetics
 
         }
 
-        /****************************
-         * Back to the main screen.
-         ****************************/
         private void backToMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

@@ -36,9 +36,6 @@ namespace Chemicals_and_cosmetics
             this.connection = connection;
         }
 
-        /**********************************
-         * Going back to the main screen.
-         *********************************/
         private void backToMenu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -47,21 +44,15 @@ namespace Chemicals_and_cosmetics
             win.Close();
         }
 
-        /*************************
-         * Only allowing numbers.
-         *************************/
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        /************************************************
-         * Updating the name of the product (rebranding).
-         ************************************************/
         private void updateProductName_Click(object sender, RoutedEventArgs e)
         {
-            //Only allowing updates if both fields are filled.
+
             if (this.productCodeTextBox.Text != "" && this.newNameTextBox.Text != "")
             {
                 int productCode = int.Parse(this.productCodeTextBox.Text);
@@ -79,6 +70,7 @@ namespace Chemicals_and_cosmetics
         private void companyCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (this.companyCodeTextBox.Text != "") {
+                this.productCode.Clear();
                 int companyCode = int.Parse(this.companyCodeTextBox.Text);
                 string commandString = "SELECT cdph_id FROM product_companies WHERE company_id = @company_code";
                 MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
@@ -91,7 +83,7 @@ namespace Chemicals_and_cosmetics
                 rdr.Close();
             }
 
-            if (this.companyCodeTextBox.Text != "" && productCodeTextBox.Text != "")
+            if (this.companyCodeTextBox.Text != "" && this.productCodeTextBox.Text != "")
             {
                 foreach (int code in this.productCode)
                 {

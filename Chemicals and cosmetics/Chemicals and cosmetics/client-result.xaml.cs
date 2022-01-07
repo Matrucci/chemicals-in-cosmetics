@@ -32,20 +32,18 @@ namespace Chemicals_and_cosmetics
             this.count_products.Content = count;
         }
 
-        /******************************************************
-         * Creating the view from a 2D array with the results.
-         ******************************************************/
         public DataView createDataView(string[,] rdr)
         {
 
             var t = new DataTable();
-            //Add column names.
+            // Add columns with name "0", "1", "2", ...
             var rows = rdr.GetLength(0);
             var columns = rdr.GetLength(1);
 
+            // Add data to DataTable
             t.Columns.Add(new DataColumn("company name"));
             t.Columns.Add(new DataColumn("product name"));
-            //Add data from the array.
+            // Add data to DataTable
             for (var r = 0; r < rows; r++)
             {
                 var newRow = t.NewRow();

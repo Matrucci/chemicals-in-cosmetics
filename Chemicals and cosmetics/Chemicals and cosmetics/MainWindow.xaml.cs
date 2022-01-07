@@ -25,7 +25,6 @@ namespace Chemicals_and_cosmetics
         public MainWindow()
         {
             InitializeComponent();
-            //Create a connection.
             string connectionString = "SERVER=localhost;DATABASE=cosmetics;UID=root;PASSWORD=NewPassword;";
             this.connection = new MySqlConnection(connectionString);
             this.connection.Open();
