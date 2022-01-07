@@ -31,12 +31,14 @@ namespace Chemicals_and_cosmetics
             this.connection.Open();
         }
 
+        //Company page.
         private void Continue_Company(object sender, RoutedEventArgs e)
         {
             company_product_page page = new company_product_page(connection);
             this.Content = page;
         }
 
+        //Client page.
         private void Continue_Client(object sender, RoutedEventArgs e)
         {
             client_products page = new client_products(connection);
