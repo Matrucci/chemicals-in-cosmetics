@@ -179,6 +179,7 @@ namespace Chemicals_and_cosmetics
                     codes[i] = string.Format("@ProductCode{0}", i);
                     cmd.Parameters.AddWithValue(codes[i], result[i]);
                 }
+                //Get how many results we have.
                 string resultCommand;
                 cmd.Connection = this.connection;
                 resultCommand = string.Format("SELECT COUNT(product_name) " +
@@ -197,6 +198,7 @@ namespace Chemicals_and_cosmetics
                 string[,] copyRdr = new string[count, 2];
                 rdr.Close();
 
+                //Get the results.
                 cmd.Connection = this.connection;
                 resultCommand = string.Format("SELECT product_name, company_name " +
                     "FROM product_companies " +
@@ -231,6 +233,9 @@ namespace Chemicals_and_cosmetics
 
         }
 
+        /**************************************************************
+         * Only getting the sub categories that apply for the primary.
+         *************************************************************/
         private void primary_categoty_cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.sub_category_cb.IsEnabled = true;

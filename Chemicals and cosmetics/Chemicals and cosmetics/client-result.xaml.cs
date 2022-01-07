@@ -27,6 +27,7 @@ namespace Chemicals_and_cosmetics
         {
             InitializeComponent();
             this.connection = connection;
+            //Parsing the data.
             this.dataView = createDataView(rdr);
             this.showResult.ItemsSource = dataView;
             this.count_products.Content = count;

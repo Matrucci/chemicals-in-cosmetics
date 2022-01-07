@@ -67,6 +67,9 @@ namespace Chemicals_and_cosmetics
             
         }
 
+        /***************************************************************
+         * Getting all the products that the company is responsible for.
+         ***************************************************************/
         private void companyCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (this.companyCodeTextBox.Text != "") {
@@ -85,6 +88,7 @@ namespace Chemicals_and_cosmetics
 
             if (this.companyCodeTextBox.Text != "" && this.productCodeTextBox.Text != "")
             {
+                //Checking if the company is responsible for that product.
                 foreach (int code in this.productCode)
                 {
                     if (code == int.Parse(this.productCodeTextBox.Text))
@@ -104,7 +108,10 @@ namespace Chemicals_and_cosmetics
                 }
             }
         }
-
+        
+        /***********************************************
+         * Checking if the product is under the company.
+         **********************************************/
         private void productCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (productCodeTextBox.Text != "")
