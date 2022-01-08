@@ -18,20 +18,23 @@
 
         <Label Content="Chemicals in Cosmetics" Grid.Row="0" Grid.Column="0" FontFamily="Arial Black" FontSize="50" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
 
-        <Button x:Name="companyPageBtn" Grid.Row="1" FontWeight="Bold" Grid.Column="0" Width="150" Height="50" Content="Company" FontSize="30" Click="Continue_Company">
+        <Button x:Name="companyPageBtn" Grid.Row="1" FontWeight="Bold" Grid.Column="0" Width="150" Height="50" Content="Company" FontSize="25" Click="Continue_Company" Background="#FF120808" Foreground="#FFF1BBBB" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="clientPageBtn" FontWeight="Bold" Grid.Row="1" Grid.Column="1" Width="150" Height="50" Content="Client" FontSize="30" Click="Continue_Client">
+        <Button x:Name="clientPageBtn" FontWeight="Bold" Grid.Row="1" Grid.Column="1" Width="150" Height="50" Content="Client" FontSize="25" Click="Continue_Client" BorderBrush="Black" Background="#FF120808" Foreground="#FFF1BBBB">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <Grid.Background>
+            <ImageBrush ImageSource="background-homeScreen.png" Opacity="0.6"/>
+        </Grid.Background>
 
     </Grid>
 </Window>

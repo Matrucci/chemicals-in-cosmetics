@@ -8,6 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="company_product_page">
 
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -17,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <Label Content="Changed the product Name?" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" FontFamily="Arial Black" FontSize="45" HorizontalContentAlignment="Center" Margin="10, 0, 10, 0"/>
-  
+
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
@@ -32,7 +33,7 @@
                             <Style.Resources>
                                 <VisualBrush x:Key="CueBannerBrush" AlignmentX="Center" AlignmentY="Center" Stretch="None">
                                     <VisualBrush.Visual>
-                                        <Label Content="Type here..." Foreground="LightGray" />
+                                        <Label Content="Type here..." Foreground="Gray" />
                                     </VisualBrush.Visual>
                                 </VisualBrush>
                             </Style.Resources>
@@ -51,15 +52,16 @@
                     </TextBox.Style>
                 </TextBox>
                 <Label x:Name="error" Content="This company does not have this product code, please try again" HorizontalAlignment="Left" Margin="11,84,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" AutomationProperties.Name="notValidCompanyCode" Background="{x:Null}" Foreground="Red" IsEnabled="False" Visibility="Hidden"/>
+                <Label x:Name="successfulUpdate" Content="The update was successful" HorizontalAlignment="Left" Margin="11,84,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" AutomationProperties.Name="notValidCompanyCode" Background="{x:Null}" Foreground="#FF28A00F" IsEnabled="False" Visibility="Hidden"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="13*"/>
-                    <ColumnDefinition Width="37*"/>
-                    <ColumnDefinition Width="50*"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,-0.4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,-0.4">
                 <Label Content="Product Code" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 30, 0, 0"/>
                 <!--<TextBox x:Name="oldNameTextBox" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Text="Type here ..." Height="25" Margin="15,15,15,15" FontSize="14"/>-->
                 <TextBox x:Name="productCodeTextBox" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Height="25" Margin="15,15,15,15" FontSize="14" PreviewTextInput="NumberValidationTextBox" TextChanged="productCodeTextBox_TextChanged">
@@ -68,7 +70,7 @@
                             <Style.Resources>
                                 <VisualBrush x:Key="CueBannerBrush" AlignmentX="Center" AlignmentY="Center" Stretch="None">
                                     <VisualBrush.Visual>
-                                        <Label Content="Type here..." Foreground="LightGray" />
+                                        <Label Content="Type here..." Foreground="Gray" />
                                     </VisualBrush.Visual>
                                 </VisualBrush>
                             </Style.Resources>
@@ -86,6 +88,8 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
+                <Label x:Name="prodCodeError" Content="This product code does not exists, please try again" HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" AutomationProperties.Name="notValidCompanyCode" Background="{x:Null}" Foreground="Red" Visibility="Hidden"/>
+
             </Grid>
             <Grid Grid.Column="2" Margin="0,0,0,-0.4">
                 <Label Content="New Name" FontFamily="Arial Black" FontSize="18" HorizontalAlignment="Center" Margin="0, 30, 0, 0"/>
@@ -96,7 +100,7 @@
                             <Style.Resources>
                                 <VisualBrush x:Key="CueBannerBrush" AlignmentX="Center" AlignmentY="Center" Stretch="None">
                                     <VisualBrush.Visual>
-                                        <Label Content="Type here..." Foreground="LightGray" />
+                                        <Label Content="Type here..." Foreground="Gray" />
                                     </VisualBrush.Visual>
                                 </VisualBrush>
                             </Style.Resources>
@@ -117,34 +121,36 @@
             </Grid>
         </Grid>
 
-        <Button x:Name="reset" Content="Reset" FontWeight="Bold" Grid.Row="3" HorizontalAlignment="Left" Margin="130,10,10,10" Width="100" Height="50" Click="reset_Click">
+        <Button x:Name="reset" Content="Reset" Background="#FFBFF9B0" BorderBrush="#FF3BC72C" FontWeight="Bold" Grid.Row="3" HorizontalAlignment="Left" Margin="130,10,10,10" Width="100" Height="50" Click="reset_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="companyCodeConfirmation" Content="Next" FontWeight="Bold"  Opacity="0.5" Grid.Row="3" HorizontalAlignment="Right" Margin="10,10,130,10" Width="100" Height="50" Click="companyCodeConfirmation_Click" IsEnabled="True" Background="#FF768BD3">
+        <Button x:Name="companyCodeConfirmation" Content="Next" FontWeight="Bold" Grid.Row="3" HorizontalAlignment="Right" Margin="10,10,130,10" Width="100" Height="50" Click="companyCodeConfirmation_Click" IsEnabled="True" Background="#FFBFF9B0" BorderBrush="#FF3BC72C">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="updateProductName" FontWeight="Bold" Content="Update" Grid.Row="3" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="updateProductName_Click" IsEnabled="False">
+        <Button x:Name="updateProductName" Background="#FFBFF9B0" BorderBrush="#FF3BC72C" FontWeight="Bold" Content="Update" Grid.Row="3" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="updateProductName_Click" IsEnabled="False">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="backToMenu" Content="Back" FontWeight="Bold" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click">
+        <Button x:Name="backToMenu" Background="#FFBFF9B0" BorderBrush="#FF3BC72C" Content="Back" FontWeight="Bold" Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="images.jpg" Opacity="0.6"/>
+        </Grid.Background>
     </Grid>
 </Page>

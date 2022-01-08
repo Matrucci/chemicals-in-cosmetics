@@ -25,6 +25,7 @@ namespace Chemicals_and_cosmetics
     {
         private MySqlConnection connection;
         private List<int> productCode = new List<int>();
+        private List<int> productsCode = new List<int>();
         //private ArrayList productCode = new ArrayList();
         bool isValidCode = false;
         bool isTypeNewName = false;
@@ -64,10 +65,12 @@ namespace Chemicals_and_cosmetics
                     cmd.Parameters.AddWithValue("@code", productCode);
                     MySqlDataReader rdr = cmd.ExecuteReader();
                     rdr.Close();
+
+                    this.successfulUpdate.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    MessageBox.Show("Not valid parameters");
+                    this.error.Visibility = Visibility.Visible;
                     return;
                 }
             }
@@ -86,14 +89,19 @@ namespace Chemicals_and_cosmetics
                 MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
                 cmd.Parameters.AddWithValue("@company_code", companyCode);
                 MySqlDataReader rdr = cmd.ExecuteReader();
+
                 while (rdr.Read())
                 {
                     this.productCode.Add(int.Parse(rdr[0].ToString()));
                 }
                 rdr.Close();
-                if (this.productCode.Count != 0)
+
+                foreach (int code in this.productCode)
                 {
-                    this.isValidCode = true;
+                    if (code == int.Parse(this.productCodeTextBox.Text))
+                    {
+                        isValidCode = true;
+                    }
                 }
             }
 
@@ -104,26 +112,6 @@ namespace Chemicals_and_cosmetics
          **********************************************/
         private void productCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (this.productCodeTextBox.Text != "")
-            {
-                /*foreach (int code in this.productCode)
-                {
-                    if (code == int.Parse(this.productCodeTextBox.Text))
-                    {
-                        isValidCode = true;
-                    }
-                }
-                if (!isValidCode)
-                {
-                    this.error.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    this.error.Visibility = Visibility.Hidden;
-                    if (this.isTypeNewName)
-                        this.updateProductName.IsEnabled = true;
-                }*/
-            }
         }
 
         private void newNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -149,17 +137,48 @@ namespace Chemicals_and_cosmetics
             this.productCodeTextBox.IsEnabled = true;
             this.newNameTextBox.IsEnabled = true;
             this.companyCodeConfirmation.IsEnabled = true;
+            this.error.Visibility = Visibility.Hidden;
+            this.successfulUpdate.Visibility = Visibility.Hidden;
+            this.prodCodeError.Visibility = Visibility.Hidden;
         }
 
         private void companyCodeConfirmation_Click(object sender, RoutedEventArgs e)
         {
-            if (this.productCodeTextBox.Text != "" && this.newNameTextBox.Text != "")
-            {
-                this.companyCodeTextBox.IsEnabled = true;
-                this.productCodeTextBox.IsEnabled = false;
-                this.newNameTextBox.IsEnabled = false;
-                this.updateProductName.IsEnabled = true;
-                this.companyCodeConfirmation.IsEnabled = false;
+            if (this.productCodeTextBox.Text != "" && this.newNameTextBox.Text != "") {
+
+                this.productsCode.Clear();
+                string commandString = "SELECT COUNT(cdph_id) FROM product_companies WHERE cdph_id = @prod_code";
+                MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
+                cmd.Parameters.AddWithValue("@prod_code", this.productCodeTextBox.Text);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                if (rdr.Read())
+                {
+                    if (int.Parse(rdr[0].ToString()) == 1) {
+                        this.prodCodeError.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        this.prodCodeError.Visibility = Visibility.Visible;
+                    }
+                    //this.productsCode.Add(int.Parse(rdr[0].ToString()));
+                }
+                rdr.Close();
+                if (this.prodCodeError.Visibility == Visibility.Hidden)
+                {
+                    this.companyCodeTextBox.IsEnabled = true;
+                    this.productCodeTextBox.IsEnabled = false;
+                    this.newNameTextBox.IsEnabled = false;
+                    this.updateProductName.IsEnabled = true;
+                    this.companyCodeConfirmation.IsEnabled = false;
+                }
+               // foreach (int code in this.productCode)
+               // {
+              //      if (code == int.Parse(this.productCodeTextBox.Text))
+              //      {
+              //          isValidCode = true;
+               //     }
+               // }
             }
         }
     }

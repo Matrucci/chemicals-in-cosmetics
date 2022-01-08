@@ -74,20 +74,22 @@
             </StackPanel>
 
         </Grid>
-        <Button x:Name="findProductsBtn" Content="Find" FontWeight="Bold" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" VerticalAlignment="Bottom" Height="50" Width="100" Click="findProductsBtn_Click" IsEnabled="False">
+        <Button x:Name="findProductsBtn" Background="#FFBFF9B0" BorderBrush="#FF3BC72C" Content="Find" FontWeight="Bold" Grid.Row="2" HorizontalAlignment="Right" Margin="10,10,10,10" VerticalAlignment="Bottom" Height="50" Width="100" Click="findProductsBtn_Click" IsEnabled="False">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="backToMenu" Content="Back" FontWeight="Bold" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click">
+        <Button x:Name="backToMenu" Background="#FFBFF9B0" BorderBrush="#FF3BC72C" Content="Back" FontWeight="Bold" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,10,10,10" Width="100" Height="50" Click="backToMenu_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="background2.png" Opacity="0.6"/>
+        </Grid.Background>
     </Grid>
 </Page>
