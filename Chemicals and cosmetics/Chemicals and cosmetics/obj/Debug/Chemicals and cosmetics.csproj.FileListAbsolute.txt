@@ -66,3 +66,8 @@ H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\ob
 H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Results.baml
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-result.g.cs
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-result.baml
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignColors.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignColors.pdb
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignThemes.Wpf.xml

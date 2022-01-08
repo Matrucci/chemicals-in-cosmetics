@@ -26,8 +26,7 @@ namespace Chemicals_and_cosmetics
         private MySqlConnection connection;
         private List<int> productCode = new List<int>();
         //private ArrayList productCode = new ArrayList();
-        bool isvalidCode = false;
-        bool isTypeProdCode = false;
+        bool isValidCode = false;
         bool isTypeNewName = false;
 
         public company_product_page(MySqlConnection connection)
@@ -53,16 +52,24 @@ namespace Chemicals_and_cosmetics
         private void updateProductName_Click(object sender, RoutedEventArgs e)
         {
 
-            if (this.productCodeTextBox.Text != "" && this.newNameTextBox.Text != "")
+            if (this.companyCodeTextBox.Text != "")
             {
-                int productCode = int.Parse(this.productCodeTextBox.Text);
-                string newProductName = this.newNameTextBox.Text;
-                string commandString = "UPDATE product SET product_name = @new_name WHERE cdph_id = @code";
-                MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
-                cmd.Parameters.AddWithValue("@new_name", newProductName);
-                cmd.Parameters.AddWithValue("@code", productCode);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                rdr.Close();
+                if (this.isValidCode == true)
+                {
+                    int productCode = int.Parse(this.productCodeTextBox.Text);
+                    string newProductName = this.newNameTextBox.Text;
+                    string commandString = "UPDATE product SET product_name = @new_name WHERE cdph_id = @code";
+                    MySqlCommand cmd = new MySqlCommand(commandString, this.connection);
+                    cmd.Parameters.AddWithValue("@new_name", newProductName);
+                    cmd.Parameters.AddWithValue("@code", productCode);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    rdr.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Not valid parameters");
+                    return;
+                }
             }
             
         }
@@ -84,29 +91,12 @@ namespace Chemicals_and_cosmetics
                     this.productCode.Add(int.Parse(rdr[0].ToString()));
                 }
                 rdr.Close();
+                if (this.productCode.Count != 0)
+                {
+                    this.isValidCode = true;
+                }
             }
 
-            if (this.companyCodeTextBox.Text != "" && this.productCodeTextBox.Text != "")
-            {
-                //Checking if the company is responsible for that product.
-                foreach (int code in this.productCode)
-                {
-                    if (code == int.Parse(this.productCodeTextBox.Text))
-                    {
-                        isvalidCode = true;
-                    }
-                }
-                if (!isvalidCode)
-                {
-                    this.error.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    this.error.Visibility = Visibility.Hidden;
-                    if (this.isTypeNewName)
-                        updateProductName.IsEnabled = true;
-                }
-            }
         }
         
         /***********************************************
@@ -114,16 +104,16 @@ namespace Chemicals_and_cosmetics
          **********************************************/
         private void productCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (productCodeTextBox.Text != "")
+            if (this.productCodeTextBox.Text != "")
             {
-                foreach (int code in this.productCode)
+                /*foreach (int code in this.productCode)
                 {
                     if (code == int.Parse(this.productCodeTextBox.Text))
                     {
-                        isvalidCode = true;
+                        isValidCode = true;
                     }
                 }
-                if (!isvalidCode)
+                if (!isValidCode)
                 {
                     this.error.Visibility = Visibility.Visible;
                 }
@@ -131,16 +121,46 @@ namespace Chemicals_and_cosmetics
                 {
                     this.error.Visibility = Visibility.Hidden;
                     if (this.isTypeNewName)
-                        updateProductName.IsEnabled = true;
-                }
+                        this.updateProductName.IsEnabled = true;
+                }*/
             }
         }
 
         private void newNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             this.isTypeNewName = true;
-            if (isvalidCode && this.isTypeNewName)
-                updateProductName.IsEnabled = true;
+            if (isValidCode && this.isTypeNewName)
+                this.updateProductName.IsEnabled = true;
+        }
+
+        /******************
+        * Resets the page. 
+        *******************/
+        private void reset_Click(object sender, RoutedEventArgs e)
+        {
+            this.productCodeTextBox.Text = "";
+            this.companyCodeTextBox.Text = "";
+            this.newNameTextBox.Text = "";
+            this.productCode.Clear();
+            this.isTypeNewName = false;
+            this.isValidCode = false;
+            this.companyCodeTextBox.IsEnabled = false;
+            this.updateProductName.IsEnabled = false;
+            this.productCodeTextBox.IsEnabled = true;
+            this.newNameTextBox.IsEnabled = true;
+            this.companyCodeConfirmation.IsEnabled = true;
+        }
+
+        private void companyCodeConfirmation_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.productCodeTextBox.Text != "" && this.newNameTextBox.Text != "")
+            {
+                this.companyCodeTextBox.IsEnabled = true;
+                this.productCodeTextBox.IsEnabled = false;
+                this.newNameTextBox.IsEnabled = false;
+                this.updateProductName.IsEnabled = true;
+                this.companyCodeConfirmation.IsEnabled = false;
+            }
         }
     }
 }

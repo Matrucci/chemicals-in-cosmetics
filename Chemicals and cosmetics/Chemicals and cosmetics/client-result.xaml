@@ -9,7 +9,13 @@
       Title="client_result">
 
     <Grid>
-        <Button x:Name="done" Content="Done" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="doneBtn_Click"/>
+        <Button x:Name="done" Content="Done" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="doneBtn_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         <DataGrid x:Name="showResult" ItemsSource="{Binding DataView}" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center"   
             Height="180" Width="500" AutoGenerateColumns="True"/>
         <Label Content="matching products were found" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="30" HorizontalContentAlignment="Center" Margin="186,10,9.6,0"/>
