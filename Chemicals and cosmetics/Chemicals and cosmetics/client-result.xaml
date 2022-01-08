@@ -9,11 +9,20 @@
       Title="client_result">
 
     <Grid>
-        <Button x:Name="done" Content="Done" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="doneBtn_Click"/>
-        <DataGrid x:Name="showResult" ItemsSource="{Binding DataView}" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center"   
-            Height="180" Width="500" AutoGenerateColumns="True"/>
-        <Label Content="matching products were found" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="30" HorizontalContentAlignment="Center" Margin="186,10,9.6,0"/>
-        <Label x:Name="count_products" Content="" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="30" HorizontalContentAlignment="Center" Margin="0,10,565.6,0"/>
-    </Grid>
+        <Button x:Name="done" Background="#FFBFF9B0" BorderBrush="#FF3BC72C" Content="Done" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="doneBtn_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <DataGrid x:Name="showResult" ItemsSource="{Binding DataView}" HorizontalAlignment="Center" Margin="135,76,135,94" VerticalAlignment="Center"   
+            Height="250" Width="520" AutoGenerateColumns="True"/>
+        <Label Content="matching products were found" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="30" HorizontalContentAlignment="Center" Margin="186,20,9.6,0"/>
 
+        <Label x:Name="count_products" Content="" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="30" HorizontalContentAlignment="Center" Margin="0,20,565.6,0"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="result-back.jpg" Opacity="0.6"/>
+        </Grid.Background>
+    </Grid>
 </Window>
