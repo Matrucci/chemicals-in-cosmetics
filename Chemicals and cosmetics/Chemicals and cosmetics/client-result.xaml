@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Chemicals_and_cosmetics"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="client_result">
+      Title="client_result" Height="450" Width="800">
 
     <Grid>
         <Button x:Name="done" Background="#FFBFF9B0" BorderBrush="#FF3BC72C" Content="Done" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Right" Margin="10,10,10,10" Width="100" Height="50" Click="doneBtn_Click">

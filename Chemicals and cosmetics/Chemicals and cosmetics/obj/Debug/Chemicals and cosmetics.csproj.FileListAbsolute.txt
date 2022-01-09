@@ -62,8 +62,6 @@ C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MySql.Data.xml
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.exe.config
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Chemicals and cosmetics.csproj.CopyComplete
-H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Results.g.cs
-H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\Results.baml
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-result.g.cs
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-result.baml
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignColors.dll
@@ -71,3 +69,10 @@ C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignColors.pdb
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\idang\OneDrive\שולחן העבודה\סדנה במסדי נתונים\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignThemes.Wpf.xml
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignColors.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignThemes.Wpf.dll
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignColors.pdb
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignThemes.Wpf.pdb
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\bin\Debug\MaterialDesignThemes.Wpf.xml
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-result.g.cs
+H:\Git\chemicals-in-cosmetics\Chemicals and cosmetics\Chemicals and cosmetics\obj\Debug\client-result.baml

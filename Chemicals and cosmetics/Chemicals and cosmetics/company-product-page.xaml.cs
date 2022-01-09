@@ -52,7 +52,8 @@ namespace Chemicals_and_cosmetics
 
         private void updateProductName_Click(object sender, RoutedEventArgs e)
         {
-
+            this.error.Visibility = Visibility.Hidden;
+            this.successfulUpdate.Visibility = Visibility.Hidden;
             if (this.companyCodeTextBox.Text != "")
             {
                 if (this.isValidCode == true)

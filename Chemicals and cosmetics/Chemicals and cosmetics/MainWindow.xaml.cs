@@ -25,9 +25,17 @@ namespace Chemicals_and_cosmetics
         public MainWindow()
         {
             InitializeComponent();
-            string connectionString = "SERVER=localhost;DATABASE=cosmetics;UID=root;PASSWORD=NewPassword;";
-            this.connection = new MySqlConnection(connectionString);
-            this.connection.Open();
+            try
+            {
+                string connectionString = "SERVER=localhost;DATABASE=cosmetics;UID=root;PASSWORD=NewPassword;";
+                this.connection = new MySqlConnection(connectionString);
+                this.connection.Open();
+            } catch (Exception e)
+            {
+                MessageBox.Show("There was an error connecting to the database.\nPlease restart the app and try again.");
+                System.Environment.Exit(0);
+            }
+            
         }
 
         //Company page.

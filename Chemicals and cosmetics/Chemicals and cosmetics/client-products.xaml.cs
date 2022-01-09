@@ -37,6 +37,7 @@ namespace Chemicals_and_cosmetics
 
         private void InitializeContent()
         {
+            this.chemicals.Sort();
             foreach (string chem in this.chemicals)
             {
                 this.chemical_lb.Items.Add(chem);
