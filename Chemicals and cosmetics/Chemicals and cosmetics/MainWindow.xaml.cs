@@ -27,7 +27,7 @@ namespace Chemicals_and_cosmetics
             InitializeComponent();
             try
             {
-                string connectionString = "SERVER=localhost;DATABASE=cosmetics;UID=root;PASSWORD=jyZcun-sugma6-vichaf;";
+                string connectionString = "SERVER=localhost;DATABASE=cosmetics;UID=root;PASSWORD=NewPassword;";
                 this.connection = new MySqlConnection(connectionString);
                 this.connection.Open();
             } catch (Exception e)
