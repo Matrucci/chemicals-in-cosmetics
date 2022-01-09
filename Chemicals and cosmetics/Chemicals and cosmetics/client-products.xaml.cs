@@ -251,7 +251,7 @@ namespace Chemicals_and_cosmetics
                 this.sub.Add(rdr[0].ToString());
             }
             rdr.Close();
-
+            this.sub_category_cb.Items.Clear();
             foreach (string sc in this.sub)
             {
                 this.sub_category_cb.Items.Add(sc);
