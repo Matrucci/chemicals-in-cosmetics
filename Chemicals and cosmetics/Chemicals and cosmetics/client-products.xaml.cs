@@ -37,7 +37,6 @@ namespace Chemicals_and_cosmetics
 
         private void InitializeContent()
         {
-            this.chemicals.Sort();
             foreach (string chem in this.chemicals)
             {
                 this.chemical_lb.Items.Add(chem);
@@ -60,7 +59,7 @@ namespace Chemicals_and_cosmetics
             rdr.Close();
 
 
-            commandString = "SELECT DISTINCT chemical_name FROM chemical";
+            commandString = "SELECT DISTINCT chemical_name FROM chemical ORDER BY chemical_name";
             cmd = new MySqlCommand(commandString, this.connection);
             rdr = cmd.ExecuteReader();
             while (rdr.Read())
